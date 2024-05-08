@@ -8,7 +8,7 @@ const logger = require('./src/utils/info_logger')
 
 // routes
 const registerRoutes = require("./src/routes/Register") 
-
+const loginRoutes = require("./src/routes/Login")
 
 //MongoDB
 const MongoDBConnection = require('./src/mongodb/mongodb_connection')
@@ -31,7 +31,11 @@ app.use(cors({
 
 
 // Register
-app.use("/register", registerRoutes )
+app.use("/register", registerRoutes)
+logger.info("Register route worked")
+// Login
+app.use("/login", loginRoutes)
+logger.info("Register login worked")
 
 
 // Listen config
