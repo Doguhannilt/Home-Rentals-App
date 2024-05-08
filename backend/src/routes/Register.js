@@ -1,10 +1,6 @@
 const express = require('express');
 const UserModel = require('../mongodb/models/user');
-const bcrypt = require("bcryptjs");
-const jwt = require('jsonwebtoken');
 const { check, validationResult } = require('express-validator');
-const e_logger = require('../utils/error_logger')
-
 const router = express.Router();
 
 router.post("/", [
