@@ -2,11 +2,9 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
-const mongoose = require('mongoose');
-const jwt = require("jsonwebtoken")
 const cookieParser = require("cookie-parser")
 const logger = require('./src/utils/info_logger')
-const e_logger = require('./src/utils/error_logger')
+
 
 // routes
 const registerRoutes = require("./src/routes/Register") 
