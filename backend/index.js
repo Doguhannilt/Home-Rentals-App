@@ -8,6 +8,10 @@ const cookieParser = require("cookie-parser")
 const logger = require('./src/utils/info_logger')
 const e_logger = require('./src/utils/error_logger')
 
+// routes
+const registerRoutes = require("./src/routes/Register") 
+
+
 //MongoDB
 const MongoDBConnection = require('./src/mongodb/mongodb_connection')
 
@@ -28,7 +32,8 @@ app.use(cors({
 }));
 
 
-
+// Register
+app.use("/register", registerRoutes )
 
 
 // Listen config
