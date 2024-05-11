@@ -17,5 +17,5 @@ const isVerified = createSlice({
     }
 })
 
-export const { trueStatement, falseStatement } = isLoggedSlice.actions; 
+export const { trueStatement, falseStatement } = isVerified.actions; 
 export default isVerified.reducer;

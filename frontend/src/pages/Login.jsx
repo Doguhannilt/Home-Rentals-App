@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
   // Fetch
 import { LoginFetch } from '../fetch/Fetch'
-import { useNavigation } from 'react-router-dom'
+import { useNavigate, useNavigation } from 'react-router-dom'
 
 
 const Login = () => {
@@ -9,7 +9,7 @@ const Login = () => {
   // States
   const [password, setPassword] = useState('')
   const [email, setEmail] = useState('')
-  const navigation = useNavigation()
+  const navigation = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -20,9 +20,9 @@ const Login = () => {
     }
     // Fetch request
     const response = await LoginFetch('http://localhost:5000/login', formData);
-    navigation("/")
-    // DISPLAY TOAST ACCORDING TO REDUX STATEMENT
     
+    // Navigate
+    navigation("/")
   } 
 
   return (

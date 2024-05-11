@@ -1,4 +1,6 @@
 import Login from "../pages/Login";
+import { falseStatement, trueStatement } from "../redux/features/booleanStatement";
+import { useDispatch, useSelector } from "react-redux";
 
 // pages/Signup
 export const PostFetch = async (url, data) => {
@@ -22,10 +24,12 @@ export const PostFetch = async (url, data) => {
 
 };
 
+
 // pages/Login
 export const LoginFetch = async (url, data) => {
   try {
-      const formDataJSON = JSON.stringify(data); 
+
+    const formDataJSON = JSON.stringify(data); 
   const rawResponse = await fetch(url, {
     method: 'POST',
     headers: {
@@ -33,15 +37,11 @@ export const LoginFetch = async (url, data) => {
     },
     body: formDataJSON 
   });
-    content = await rawResponse.json();
+    const content = await rawResponse.json();
     console.log(content)
-    return content
-
-    // Redux TRUE statement
-
+    
   } catch (err) {
     console.log(err)
 
-    // Redux FALSE statement
   }}
 

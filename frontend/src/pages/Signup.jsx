@@ -1,6 +1,7 @@
 import { useState } from "react"
   // Fetch
 import { PostFetch } from "../fetch/Fetch";
+import { useNavigate } from "react-router-dom";
 
 
 const Signup = () => {
@@ -11,6 +12,7 @@ const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const navigation = useNavigate()
 
     // Password Confirmation
   const handleConfirmPasswordChange = (e) => {
@@ -30,6 +32,7 @@ const Signup = () => {
     };
     // Fetch
     await PostFetch('http://localhost:5000/register', formData);
+    navigation("/login")
   }
 
   return (
