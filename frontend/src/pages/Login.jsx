@@ -1,21 +1,21 @@
 import React, { useState } from 'react'
+  // Fetch
 import { LoginFetch } from '../fetch/Fetch'
 
 const Login = () => {
 
+  // States
   const [password, setPassword] = useState('')
   const [email, setEmail] = useState('')
 
-  console.log(email, password)
-
   const handleSubmit = async (e) => {
     e.preventDefault()
-
+    // Data
     const formData = {
       email: email,
       password: password
     }
-
+    // Fetch request
     await LoginFetch('http://localhost:5000/login', formData);
   } 
 
@@ -35,8 +35,8 @@ const Login = () => {
               onChange={(e) => setEmail(e.target.value)    
             }
           />
-     
-        </label>
+          </label>
+          
         {/* Password */}
         <label className="text-white text-md font-bold ">
           Password
@@ -53,7 +53,7 @@ const Login = () => {
         </label>
         <div className = "flex gap-24 ">
         <span>
-        <button type="submit" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-lg px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Register</button>
+        <button type="submit" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-lg px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Login</button>
         </span>
         <span>
             <label className = "text-gray-800"><a href="/register">Don't you have an account?</a></label>

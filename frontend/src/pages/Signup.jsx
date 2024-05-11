@@ -1,38 +1,35 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import Axios from 'axios'
+  // Fetch
 import { PostFetch } from "../fetch/Fetch";
-import { Card } from "@radix-ui/themes";
+
 
 const Signup = () => {
   
+    // States
   const [name, setName] = useState('');
   const [lastname, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const navigation = useNavigate();
 
+    // Password Confirmation
   const handleConfirmPasswordChange = (e) => {
     const { value } = e.target;
     setConfirmPassword(value);
     setPassword(value);
   };
 
-  
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    // Data
     const formData = {
       name: name,
       lastname: lastname,
       email: email,
       password: password
     };
-
+    // Fetch
     await PostFetch('http://localhost:5000/register', formData);
-  
   }
 
   return (

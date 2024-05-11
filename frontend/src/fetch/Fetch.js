@@ -1,5 +1,6 @@
 export const PostFetch = async (url, data ) => {
-  const formDataJSON = JSON.stringify(data); 
+  try {
+    const formDataJSON = JSON.stringify(data); 
   const rawResponse = await fetch(url, {
     method: 'POST',
     headers: {
@@ -10,11 +11,16 @@ export const PostFetch = async (url, data ) => {
   const content = await rawResponse.json();
 
   console.log(content);
+  } catch (error) {
+    console.log(error)
+  } 
+
 };
 
 
 export const LoginFetch = async (url, data) => {
-  const formDataJSON = JSON.stringify(data); 
+  try {
+      const formDataJSON = JSON.stringify(data); 
   const rawResponse = await fetch(url, {
     method: 'POST',
     headers: {
@@ -22,6 +28,13 @@ export const LoginFetch = async (url, data) => {
     },
     body: formDataJSON 
   });
-  const content = await rawResponse.json();
-  console.log(content);
+    const content = await rawResponse.json();
+    console.log(content)
+  } catch (err) {
+    console.log(err)
+  }
+
+
 }
+
+ 
