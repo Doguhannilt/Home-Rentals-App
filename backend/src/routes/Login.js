@@ -25,7 +25,7 @@ router.post("/", [
         
         const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET_KEY, { expiresIn: "1d" })
         res.cookie("auth_token", token, { httpOnly: true, maxAge: 86400000 })
-        res.status(200).json({ userId: user._id })
+        res.status(200).json({ userId: user._id, email: user.email, password: user.password })
 
     } catch (err) {
         console.log(err)
