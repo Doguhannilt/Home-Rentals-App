@@ -1,14 +1,28 @@
 import React, { useState } from 'react'
+import { LoginFetch } from '../fetch/Fetch'
 
 const Login = () => {
 
   const [password, setPassword] = useState('')
   const [email, setEmail] = useState('')
 
+  console.log(email, password)
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    const formData = {
+      email: email,
+      password: password
+    }
+
+    await LoginFetch('http://localhost:5000/login', formData);
+  } 
+
   return (
     <div  style={{ backgroundImage: `url("/images/main.jpg")`, backgroundSize: 'cover', backgroundPosition: 'center' }} className="h-screen">
           <div className = "">
-        <form className="mx-auto max-w-md flex flex-col gap-10 pt-40 font-bold h-full w-full ">
+        <form onSubmit={ handleSubmit } className="mx-auto max-w-md flex flex-col gap-10 pt-40 font-bold h-full w-full ">
            
         <h2 className="text-3xl font-bold text-white">Login 🌴</h2>
         {/* Email */}
@@ -16,8 +30,10 @@ const Login = () => {
           Email
           <input
             type="email"
-            className="text-white text-2xl rounded w-full h-full py-1 px-2 font-normal hover:border-none bg-gray-500/50"
-            onChange={(e) => setEmail(e.target.value)}
+              className="text-white text-2xl rounded w-full h-full py-1 px-2 font-normal hover:border-none bg-gray-500/50"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)    
+            }
           />
      
         </label>
@@ -27,9 +43,11 @@ const Login = () => {
           <input
             type="password"
               className="text-white text-2xl rounded w-full h-full py-1 px-2 font-normal hover:border-none bg-gray-500/50 "
-              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)
+              }
             />
-        {password.length < 6 && <p>Password must be at least 6 characters</p>}
+          {password.length < 6 && <p>Password must be at least 6 characters</p>}
       
             
         </label>
@@ -40,10 +58,9 @@ const Login = () => {
         <span>
             <label className = "text-gray-800"><a href="/register">Don't you have an account?</a></label>
         </span>
-        </div>
-       
-      </form>
-              </div>
+          </div>
+        </form>
+      </div>
     </div>
   )
 }

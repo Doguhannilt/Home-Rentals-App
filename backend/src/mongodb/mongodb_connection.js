@@ -10,8 +10,8 @@ class MongoDBConnection{
             await mongoose.connect(process.env.MONGODB_CONNECTION_STRING);
             i_logger.info("Connected to the DB");
         } catch (error) {
-           e_logger(error)
-        }
+           e_logger.info(error)
+        } 
 }}
 
 
