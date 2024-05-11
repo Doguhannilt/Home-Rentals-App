@@ -9,7 +9,7 @@ const e_logger = createLogger({
                 format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
                 format.json()
             ),
-            silent:false
+       
         }),
         new transports.Console({
             level: 'error',
@@ -18,11 +18,8 @@ const e_logger = createLogger({
                 format.json(),
                 format.simple()
             ),
-            silent:false
         }),
     ]
 });
  
-module.exports = {
-    e_logger
-};
+module.exports = e_logger
