@@ -1,4 +1,8 @@
-export const PostFetch = async (url, data ) => {
+import Login from "../pages/Login";
+
+// pages/Signup
+export const PostFetch = async (url, data) => {
+
   try {
     const formDataJSON = JSON.stringify(data); 
   const rawResponse = await fetch(url, {
@@ -8,8 +12,9 @@ export const PostFetch = async (url, data ) => {
     },
     body: formDataJSON 
   });
-  const content = await rawResponse.json();
+    const content = await rawResponse.json();
 
+  
   console.log(content);
   } catch (error) {
     console.log(error)
@@ -17,7 +22,7 @@ export const PostFetch = async (url, data ) => {
 
 };
 
-
+// pages/Login
 export const LoginFetch = async (url, data) => {
   try {
       const formDataJSON = JSON.stringify(data); 
@@ -28,13 +33,15 @@ export const LoginFetch = async (url, data) => {
     },
     body: formDataJSON 
   });
-    const content = await rawResponse.json();
+    content = await rawResponse.json();
     console.log(content)
+    return content
+
+    // Redux TRUE statement
+
   } catch (err) {
     console.log(err)
-  }
 
+    // Redux FALSE statement
+  }}
 
-}
-
- 
