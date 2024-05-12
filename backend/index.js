@@ -9,6 +9,7 @@ const logger = require('./src/utils/info_logger')
 // routes
 const registerRoutes = require("./src/routes/Register") 
 const loginRoutes = require("./src/routes/Login")
+const cityRoutes = require("./src/routes/City")
 
 //MongoDB
 const MongoDBConnection = require('./src/mongodb/mongodb_connection')
@@ -37,8 +38,10 @@ app.use("/register", registerRoutes)
 logger.info("Register route worked")
 // Login
 app.use("/login", loginRoutes)
-logger.info("Register login worked")
-
+logger.info("Login route worked")
+// Country
+app.use("/city", cityRoutes)
+logger.info("City route worked")
 
 // Listen config
 app.listen(PORT, () => {
