@@ -9,12 +9,12 @@ const imageModel = require("./home_models/house_images")
 const utilsModel = require("./home_models/utils")
 
 const houseSchema = mongoose.Schema({
-    location: [locationModel],
-    price: [priceModel],
-    rooms: [roomModel],
-    outside: [outsideModel],
-    house_image: [imageModel],
-    utils: [utilsModel]
+    location: { type: mongoose.Schema.Types.ObjectId, ref: "Location" },
+    price: { type: mongoose.Schema.Types.ObjectId, ref: "Price" },
+    rooms: [{ type: mongoose.Schema.Types.ObjectId, ref: "Room" }],
+    outside: { type: mongoose.Schema.Types.ObjectId, ref: "Outside" },
+    house_image: { type: mongoose.Schema.Types.ObjectId, ref: "HouseImage" },
+    utils: [{ type: mongoose.Schema.Types.ObjectId, ref: "Utils" }]
 })
 
 const houseModel = mongoose.model("House", houseSchema)

@@ -3,7 +3,7 @@ const cityModel = require("../city")
 
 const locationSchema = mongoose.Schema({
     country: { type: String },
-    city: [cityModel],
+    city: [{ type: mongoose.Schema.Types.ObjectId, ref: "City", required: true }],
     street: { type: String },
     neighbourhood: { type: String },
     apartment_number: { type: Number },
